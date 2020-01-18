@@ -2,6 +2,69 @@
 
 {% block content %}
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 ml-auto mr-auto">
+            <div class="card card-nav-tabs">
+
+                <form class="form" method="GET" action="/sms">
+                    <div class="card-header card-header-primary text-center">
+                        <h2 class="title">Send SMS</h2>
+                    </div>
+                    <br><br>
+                    <div class="card-body ">
+                        <div class="tab-content text-left">
+                            <div class="form-group col-lg-12">
+                                <label for="exampleInputEmail1">Enter Mobile Number</label>
+                                <input type="text" class="form-control" name="number" value="">
+                            </div>
+                            <br>
+                            <div class="form-group col-lg-12">
+                                <label for="exampleInputEmail1">Enter Message</label>
+                                <textarea class="form-control" name="message"> </textarea>
+                            </div>
+                            <br>
+                            <div class="form-group col-lg-12">
+                                <button type="submit" class="btn btn-primary">Send</button>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                {% if status == 'success' %}
+                                <div class="alert alert-success">
+                                    <div class="container">
+                                    <div class="alert-icon">
+                                        <i class="material-icons">check</i>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                    </button>
+                                    <b>Success Alert:</b> {{rmessage}}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if status == 'error' %}
+                                <div class="alert alert-danger">
+                                    <div class="container">
+                                    <div class="alert-icon">
+                                        <i class="material-icons">error_outline</i>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                    </button>
+                                    <b>Error Alert:</b> {{rmessage}}
+                                    </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 {% endblock %}
 {% block script %}
